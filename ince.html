@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="styles.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Ayush Lokare</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <section class="hero" id="home">
+        <h1>Hello, I'm Ayush Lokare</h1>
+        <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
+        <a href="#projects">See My Work</a>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
+        <div class="about-text">
+            <h2>About Me</h2>
+            <h3>Technically speaking</h3>
+            <p>I am a passionate developer with experience in building web applications, competitive programming, and
+                problem-solving. I love creating beautiful and functional user interfaces.</p>
+            <h3>Physically speaking</h3>
+            <p>I am Calisthenics athelet with mastered advanced skills. </p>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <img src="Event_booking.png" alt="Project">
+                <div class="content">
+                    <h3>Event-Booking</h3>
+                    <p>Full-stack app with Node.js and MongoDB.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="Portfolio.png" alt="Project">
+                <div class="content">
+                    <h3>Portfolio</h3>
+                    <p>Responsive web application using HTML, CSS, JS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Skills</h2>
+        <div class="skills" style="justify-content:center;">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
+            <div class="skill">Java</div>
+            <div class="skill">MongoDB</div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Contact Me</h2>
+        <div class="contact">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- Success message -->
+            <p id="successMessage" style="text-align:center; color:green; display:none; margin-top:1rem;">
+                Your message has been sent successfully!
+            </p>
+
+        </div>
+    </section>
+  
+    
+        <script src="back.js">
+document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if(!name || !email || !message){
+        alert('Please fill all fields.');
+        return;
+    }
+
+    try {
+        const res = await fetch('http://localhost:3000/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, message })
+        });
+        const data = await res.json();
+        if(res.ok){
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('contactForm').reset();
+        } else {
+            alert(data.message);
+        }
+    } catch(err){
+        alert('Something went wrong. Try again later.');
+        console.error(err);
+    }
+});
+</script>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 Ayush Lokare. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
