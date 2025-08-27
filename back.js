@@ -1,4 +1,4 @@
-require('dotenv').config(); // load .env
+require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Contact form endpoint
+
 app.post('/contact', async (req, res) => {
     const { name, email, message } = req.body;
 
@@ -21,7 +21,7 @@ app.post('/contact', async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER,   // from .env
+                user: process.env.EMAIL_USER,   
                 pass: process.env.EMAIL_PASS
             }
         });
@@ -40,6 +40,6 @@ app.post('/contact', async (req, res) => {
     }
 });
 
-// Use port from .env or fallback
+
 const PORT = process.env.PORT || 3023;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
