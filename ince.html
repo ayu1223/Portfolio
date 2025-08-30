@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link href="styles.css" rel="stylesheet">
-    <style>
-
-    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -90,47 +88,73 @@
                 <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
-
-            <!-- Success message -->
-            <p id="successMessage" style="text-align:center; color:green; display:none; margin-top:1rem;">
-                Your message has been sent successfully!
-            </p>
-
+        </div>
+         <div class="socials">
+        <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/ayuuu__23__/" aria-label="Instagram" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener">
+        <i class="fa-brands fa-github"></i></a>
         </div>
     </section>
-  
-    
-        <script src="back.js">
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
+   
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close" onclick="closePopup()"> &times;</span>
+            <p id="popupMessage" style="text-align:center; color:green; margin-top:1rem;">
+                Your message has been sent successfully!
+            </p>
+        </div>
+    </div>
 
-    if(!name || !email || !message){
-        alert('Please fill all fields.');
-        return;
-    }
-
-    try {
-        const res = await fetch('http://localhost:3000/contact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message })
-        });
-        const data = await res.json();
-        if(res.ok){
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('contactForm').reset();
-        } else {
-            alert(data.message);
+    <script>
+        function closePopup(){
+            document.getElementById('popup').style.display = 'none';
         }
-    } catch(err){
-        alert('Something went wrong. Try again later.');
-        console.error(err);
-    }
-});
-</script>
+
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill all fields.');
+                return;
+            }
+
+            
+            try {
+                const res = await fetch('http://localhost:3023/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                let data = {};
+                try {
+                    data = await res.json();
+                } catch {
+
+                    data = { message: "Unknown server response" };
+                }
+
+                if (res.ok) {
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('contactForm').reset();
+
+                } else {
+                    alert(data.message || "Failed to send message.");
+                }
+            } catch (err) {
+                alert('😔 Oops Something Went Wrong. Try Again Later.');
+                console.error(err);
+            }
+
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
