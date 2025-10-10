@@ -192,22 +192,59 @@ section {
 }
 
 /* Skills */
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.icon-train {
+  display: flex;
+  gap: 60px; /* spacing between icons so they don’t overlap */
+  font-size: 3rem;
+  position: relative;
+  overflow: hidden;
+  height: 120px;
+  align-items: center;
+  padding-left: 10px;
 }
 
-.skill {
-    background-color: #f1f1f1;
-    padding: 0.8rem 1rem;
-    border-radius: 20px;
-    font-weight: bold;
+/* All icons move together like a train */
+.icon-train i {
+  opacity: 0;
+  filter: blur(15px);
+  transform: translateX(-200px);
+  animation: moveTrain 12s linear infinite;
 }
 
-.skill:hover {
-    transform: translateY(-5px);
+/* Smoke entry + exit effect */
+@keyframes moveTrain {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(-200px);
+  }
+  15% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0px);
+  }
+  70% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(600px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(900px);
+  }
 }
+
+/* Individual colors (brand colors) */
+.icon-train i:nth-child(1) { color: #e34f26; }   /* HTML */
+.icon-train i:nth-child(2) { color: #1572b6; }   /* CSS */
+.icon-train i:nth-child(3) { color: #f7df1e; }   /* JS */
+.icon-train i:nth-child(4) { color: #61dbfb; }   /* React */
+.icon-train i:nth-child(5) { color: #68a063; }   /* Node.js */
+.icon-train i:nth-child(6) { color: #3776ab; }   /* Python */
+.icon-train i:nth-child(7) { color: #f89820; }   /* Java */
+.icon-train i:nth-child(8) { color: #4db33d; }   /* MongoDB */
+
 
 /* Contact */
 #contact{
@@ -255,8 +292,8 @@ section {
     
 }
 .socials a {
-    font-size: 28px;           /* icon size */
-    color: #333;               /* default color */
+    font-size: 28px;           
+    color: #333;               
     transition: transform .15s ease, color .15s ease;
     
 }
@@ -266,32 +303,92 @@ section {
 .socials a[aria-label="GitHub"]:hover { color: #000; }
 
 /* Popup */
+/* Overlay with blur */
 .popup {
-    display: none;
+    display: none; /* default hidden */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
     z-index: 1000;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 40px;
 }
 
+/* When active */
+.popup.show {
+    display: flex;
+}
+
+
+/* Popup box */
 .popup-content {
-    background: white;
-    padding: 2px;
-    margin: 5% auto;
-    border-radius: 10px;
-    width: 300px;
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 400px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    border-top: 6px solid #28a745;
+    animation: dropDown 0.4s ease;
+    position: relative;
 }
 
-.close {
-    float: right;
-    cursor: pointer;
-    font-size: 20px;
+/* Success icon */
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background: #28a745;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
 }
+
+/* Success message */
+#popupMessage {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #28a745;
+    margin-top: 6px;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+.close:hover {
+    color: #000;
+}
+
+/* Animation for popup entry */
+@keyframes dropDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* Footer */
 footer {

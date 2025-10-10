@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="public/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -33,7 +33,7 @@
 
     <!-- About -->
     <section class="about" id="about">
-        <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
+        <img src="public/profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
@@ -49,14 +49,14 @@
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
             <div class="project-card">
-                <img src="Event_booking.png" alt="Project">
+                <img src="public/Event_booking.png" alt="Project">
                 <div class="content">
                     <h3>Event-Booking</h3>
                     <p>Full-stack app with Node.js and MongoDB.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="Portfolio.png" alt="Project">
+                <img src="public/Portfolio.png" alt="Project">
                 <div class="content">
                     <h3>Portfolio</h3>
                     <p>Responsive web application using HTML, CSS, JS.</p>
@@ -68,15 +68,15 @@
     <!-- Skills -->
     <section id="skills">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Skills</h2>
-        <div class="skills" style="justify-content:center;">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">React</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">Java</div>
-            <div class="skill">MongoDB</div>
+        <div class="icon-train">
+            <i class="fa-brands fa-html5"></i>
+            <i class="fa-brands fa-css3-alt"></i>
+            <i class="fa-brands fa-js"></i>
+            <i class="fa-brands fa-react"></i>
+            <i class="fa-brands fa-node-js"></i>
+            <i class="fa-brands fa-python"></i>
+            <i class="fa-brands fa-java"></i>
+            <i class="fa-solid fa-database"></i>
         </div>
     </section>
 
@@ -105,13 +105,14 @@
     <!-- Popup -->
     <div id="popup" class="popup">
         <div class="popup-content">
-            <span id="closePopup" class="close" onclick="closePopup()"> &times;</span>
-            <p id="popupMessage" style="text-align:center; color:green; margin-top:1rem;">
-                Your message has been sent successfully!
-            </p>
+            <span id="closePopup" class="close" onclick="closePopup()">&times;</span>
+            <div class="success-icon">✔</div>
+            <p id="popupMessage">Your message has been sent successfully!</p>
         </div>
     </div>
 
+
+    <!-- Backscr -->
     <script>
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
@@ -138,7 +139,7 @@
 
 
             try {
-                const res = await fetch('http://localhost:3023/contact', {
+                const res = await fetch('', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, message })
