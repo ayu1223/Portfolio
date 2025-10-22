@@ -114,59 +114,54 @@
 
     <!-- Backscr -->
     <script>
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("nav ul");
+    menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            alert('Please fill all fields.');
+            return;
         }
 
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navLinks = document.querySelector("nav ul");
+        try {
+            const res = await fetch('/contact', {  
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message })
+            });
 
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("show");
-        });
-
-
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !message) {
-                alert('Please fill all fields.');
-                return;
-            }
-
-
+            let data = {};
             try {
-                const res = await fetch('', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                let data = {};
-                try {
-                    data = await res.json();
-                } catch {
-
-                    data = { message: "Unknown server response" };
-                }
-
-                if (res.ok) {
-                    document.getElementById('popup').style.display = 'block';
-                    document.getElementById('contactForm').reset();
-
-                } else {
-                    alert(data.message || "Failed to send message.");
-                }
-            } catch (err) {
-                alert('😔 Oops Something Went Wrong. Try Again Later.');
-                console.error(err);
+                data = await res.json();
+            } catch {
+                data = { message: "Unknown server response" };
             }
 
-        });
-    </script>
+            if (res.ok) {
+                document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
+                document.getElementById('popup').style.display = 'block';
+                document.getElementById('contactForm').reset();
+            } else {
+                alert(data.message || "Failed to send message.");
+            }
+        } catch (err) {
+            alert('😔 Oops, something went wrong. Try again later.');
+            console.error(err);
+        }
+    });
+</script>
 
     <!-- Footer -->
     <footer>
