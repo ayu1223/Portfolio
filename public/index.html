@@ -36,8 +36,8 @@
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
-            <p>I am a passionate developer with experience in building web applications, competitive programming, and
-                problem-solving. I love creating beautiful and functional user interfaces.</p>
+            <p>I am a passionate developer with experience in building web applications, competitive programming,
+                and problem-solving. I love creating beautiful and functional user interfaces.</p>
             <h3>Physically speaking</h3>
             <p>I am a Calisthenics athlete with mastered advanced skills.</p>
         </div>
@@ -47,27 +47,25 @@
     <section id="projects">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
-            <a href="https://event-booking-demo.com" target="_blank" class="project-card">
-                <img src="Event_booking.png" alt="Project">
+            <a href="https://event-booking-app-ies5.onrender.com" target="_blank" class="project-card">
+                <img src="Event_booking.png" alt="Event-Booking Project">
                 <div class="content">
                     <h3>Event-Booking</h3>
                     <p>Full-stack app with Node.js and MongoDB.</p>
                 </div>
             </a>
-
-            <a href="https://portfolio-demo.com" target="_blank" class="project-card">
-                <img src="Portfolio.png" alt="Project">
+            <a href="https://portfolio-two-chi-3lgyk6xurs.vercel.app/" target="_blank" class="project-card">
+                <img src="Portfolio.png" alt="Portfolio Project">
                 <div class="content">
                     <h3>Portfolio</h3>
                     <p>Responsive web application using HTML, CSS, JS.</p>
                 </div>
             </a>
-
-            <a href="https://url-s-demo.com" target="_blank" class="project-card">
-                <img src="URL-s.png" alt="Project">
+            <a href="https://url-s-tawny.vercel.app/" target="_blank" class="project-card">
+                <img src="URL-s.png" alt="URL-s Project">
                 <div class="content">
                     <h3>URL-s</h3>
-                    <p>Responsive PWA using HTML, CSS, JS.</p>
+                    <p>Progressive Web App using HTML, CSS, JS.</p>
                 </div>
             </a>
         </div>
@@ -115,7 +113,7 @@
         <div class="popup-content">
             <span id="closePopup" class="close">&times;</span>
             <div class="success-icon">✔</div>
-            <p id="popupMessage"></p>
+            <p id="popupMessage">Your message has been sent successfully!</p>
         </div>
     </div>
 
@@ -123,19 +121,18 @@
     <script>
         const FORM_API_KEY = "ebdc3890-a3a4-4c65-a288-ea7d7caf4eec";
 
-        const popup = document.getElementById('popup');
-        const popupMessage = document.getElementById('popupMessage');
-
-        function closePopup() {
-            popup.style.display = 'none';
-        }
-
-        document.getElementById('closePopup').addEventListener('click', closePopup);
-
         const menuToggle = document.querySelector(".menu-toggle");
         const navLinks = document.querySelector("nav ul");
         menuToggle.addEventListener("click", () => {
             navLinks.classList.toggle("show");
+        });
+
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popupMessage');
+        const closePopupBtn = document.getElementById('closePopup');
+
+        closePopupBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
         });
 
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
@@ -162,7 +159,6 @@
                 });
 
                 const data = await res.json();
-
                 popupMessage.innerText = data.message || "Message sent successfully!";
                 popup.style.display = 'flex';
                 document.getElementById('contactForm').reset();
