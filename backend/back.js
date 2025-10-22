@@ -7,22 +7,22 @@ const app = express();
 
 app.use(cors({
   origin: [
-    'https://portfolio-8s08lpwjb-ayu1223s-projects.vercel.app'  
+    'https://portfolio-8s08lpwjb-ayu1223s-projects.vercel.app' 
   ],
   methods: ['GET', 'POST'],
 }));
 
 app.use(express.json());
 
-
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS  
+    user: process.env.EMAIL_USER,       
+    pass: process.env.EMAIL_PASS        
   }
 });
 
+// ---------- Contact route ----------
 app.post('/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -32,7 +32,7 @@ app.post('/contact', async (req, res) => {
 
   const mailOptions = {
     from: `"${name}" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,   
     replyTo: email,
     subject: `New Contact Form Submission from ${name}`,
     text: `You received a message from ${name} (${email}):\n\n${message}`,
@@ -46,12 +46,16 @@ app.post('/contact', async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent successfully!");
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully!", info.response);
     return res.json({ message: "Message sent successfully" });
   } catch (error) {
     console.error("❌ Nodemailer Error:", error);
-    return res.status(500).json({ message: "Error sending message", error: error.toString() });
+
+    return res.status(500).json({
+      message: "Error sending message",
+      error: error.response || error.toString()
+    });
   }
 });
 
