@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="styles.css" rel="stylesheet">
+    <link href="public/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -13,7 +13,7 @@
     <!-- Header -->
     <nav>
         <div class="logo">Ayush Lokare</div>
-        <div class="menu-toggle">&#9776;</div> <!-- hamburger -->
+        <div class="menu-toggle">&#9776;</div>
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -23,7 +23,7 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <h1>Hello, I'm Ayush Lokare</h1>
         <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
@@ -32,7 +32,7 @@
 
     <!-- About -->
     <section class="about" id="about">
-        <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
+        <img src="public/profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
@@ -48,14 +48,14 @@
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
             <div class="project-card">
-                <img src="Event_booking.png" alt="Event Booking Project">
+                <img src="public/Event_booking.png" alt="Project">
                 <div class="content">
                     <h3>Event-Booking</h3>
                     <p>Full-stack app with Node.js and MongoDB.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="Portfolio.png" alt="Portfolio Project">
+                <img src="public/Portfolio.png" alt="Project">
                 <div class="content">
                     <h3>Portfolio</h3>
                     <p>Responsive web application using HTML, CSS, JS.</p>
@@ -91,13 +91,13 @@
             </form>
         </div>
         <div class="socials">
-            <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener">
                 <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/ayuuu__23__/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/ayuuu__23__/" aria-label="Instagram" target="_blank" rel="noopener">
                 <i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener">
                 <i class="fa-brands fa-github"></i></a>
-            <a href="tel:+918793787431" aria-label="Call us"><i class="fas fa-phone"></i></a>
+            <a href="tel:+91 8793787431" aria-label="Call us"><i class="fas fa-phone"></i></a>
         </div>
     </section>
 
@@ -112,61 +112,53 @@
 
     <!-- Scripts -->
     <script>
-const API_BASE = "https://backend-p-ucjs.onrender.com"; 
+        const FORM_API_KEY = "ebdc3890-a3a4-4c65-a288-ea7d7caf4eec";
 
-function closePopup() {
-    document.getElementById('popup').style.display = 'none';
-}
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector("nav ul");
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-});
-
-document.getElementById('contactForm').addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    if (!name || !email || !message) {
-        alert('Please fill all fields.');
-        return;
-    }
-
-    try {
-        const res = await fetch(`${API_BASE}/contact`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, message })
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector("nav ul");
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
         });
 
-        let data = {};
-        try {
-            data = await res.json();
-        } catch {
-            data = { message: "Unknown server response" };
-        }
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
-        if (res.ok) {
-            document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
-        } else {
-            document.getElementById('popupMessage').innerText = data.message || "Failed to send message.";
-        }
+            if (!name || !email || !message) {
+                alert('Please fill all fields.');
+                return;
+            }
 
-        document.getElementById('popup').style.display = 'block';
-        document.getElementById('contactForm').reset();
+            try {
+                const res = await fetch("https://api.web3forms.com/submit", {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: FORM_API_KEY,
+                        name,
+                        email,
+                        message
+                    })
+                });
 
-    } catch (err) {
-        console.error("Fetch Error:", err);
-        document.getElementById('popupMessage').innerText = "😔 Oops, something went wrong. Try again later.";
-        document.getElementById('popup').style.display = 'block';
-    }
-});
-</script>
+                const data = await res.json();
 
+                document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
+                document.getElementById('popup').style.display = 'block';
+                document.getElementById('contactForm').reset();
+            } catch (err) {
+                console.error("Form submission error:", err);
+                document.getElementById('popupMessage').innerText = "😔 Oops, something went wrong. Try again later.";
+                document.getElementById('popup').style.display = 'block';
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
