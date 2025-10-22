@@ -2,32 +2,24 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const path = require('path');
 
 const app = express();
 
 app.use(cors({
   origin: [
-    'http://localhost:3023',                  
-    'http://127.0.0.1:5500',                  
-    'https://your-portfolio.vercel.app'       
+    'https://portfolio-8s08lpwjb-ayu1223s-projects.vercel.app'  
   ],
   methods: ['GET', 'POST'],
 }));
 
 app.use(express.json());
 
-app.use(express.static(path.join(__dirname, '../public')));
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/index.html'));
-});
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
+    pass: process.env.EMAIL_PASS  
   }
 });
 
