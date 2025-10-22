@@ -303,21 +303,25 @@ section {
 .socials a[aria-label="GitHub"]:hover { color: #000; }
 
 /* Popup */
-/* Overlay with blur */
 .popup {
-    display: none; /* default hidden */
+    display: none; 
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 90%;
+    max-width: 400px; 
+    background: rgba(255, 255, 255, 0.95); 
     backdrop-filter: blur(6px);
     z-index: 1000;
+    display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 40px;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 /* When active */
 .popup.show {
