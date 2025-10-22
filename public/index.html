@@ -23,27 +23,27 @@
         </ul>
     </nav>
 
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Hello, I'm Ayush Lokare</h1>
         <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
         <a href="#projects">See My Work</a>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section class="about" id="about">
         <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
-            <p>I am a passionate developer with experience in building web applications, competitive programming, and
-                problem-solving. I love creating beautiful and functional user interfaces.</p>
+            <p>I am a passionate developer with experience in building web applications, competitive programming,
+                and problem-solving. I love creating beautiful and functional user interfaces.</p>
             <h3>Physically speaking</h3>
             <p>I am a Calisthenics athlete with mastered advanced skills.</p>
         </div>
     </section>
 
-    <!-- Projects -->
+    <!-- Projects Section -->
     <section id="projects">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
@@ -71,7 +71,7 @@
         </div>
     </section>
 
-    <!-- Skills -->
+    <!-- Skills Section -->
     <section id="skills">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Skills</h2>
         <div class="icon-train">
@@ -86,7 +86,7 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Contact Me</h2>
         <div class="contact">
@@ -111,7 +111,7 @@
     <!-- Popup -->
     <div id="popup" class="popup">
         <div class="popup-content">
-            <span id="closePopup" class="close" onclick="closePopup()">&times;</span>
+            <span id="closePopup" class="close">&times;</span>
             <div class="success-icon">✔</div>
             <p id="popupMessage">Your message has been sent successfully!</p>
         </div>
@@ -121,15 +121,19 @@
     <script>
         const FORM_API_KEY = "ebdc3890-a3a4-4c65-a288-ea7d7caf4eec";
 
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
         const menuToggle = document.querySelector(".menu-toggle");
         const navLinks = document.querySelector("nav ul");
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("show");
-        });
+        menuToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
+
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popupMessage');
+        document.getElementById('closePopup').addEventListener('click', () => popup.style.display = 'none');
+
+        function showPopup(message) {
+            popupMessage.innerText = message;
+            popup.style.display = 'flex';
+            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        }
 
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -155,14 +159,11 @@
                 });
 
                 const data = await res.json();
-
-                document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
-                document.getElementById('popup').style.display = 'block';
+                showPopup(data.message || "Message sent successfully!");
                 document.getElementById('contactForm').reset();
             } catch (err) {
                 console.error("Form submission error:", err);
-                document.getElementById('popupMessage').innerText = "😔 Oops, something went wrong. Try again later.";
-                document.getElementById('popup').style.display = 'block';
+                showPopup("😔 Oops, something went wrong. Try again later.");
             }
         });
     </script>
@@ -171,6 +172,6 @@
     <footer>
         &copy; 2025 Ayush Lokare. All Rights Reserved.
     </footer>
-
 </body>
+
 </html>
