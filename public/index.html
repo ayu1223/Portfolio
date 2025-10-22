@@ -23,60 +23,57 @@
         </ul>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="home">
         <h1>Hello, I'm Ayush Lokare</h1>
         <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
         <a href="#projects">See My Work</a>
     </section>
 
-    <!-- About Section -->
+    <!-- About -->
     <section class="about" id="about">
         <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
-            <p>I am a passionate developer with experience in building web applications, competitive programming,
-                and problem-solving. I love creating beautiful and functional user interfaces.</p>
+            <p>I am a passionate developer with experience in building web applications, competitive programming, and
+                problem-solving. I love creating beautiful and functional user interfaces.</p>
             <h3>Physically speaking</h3>
             <p>I am a Calisthenics athlete with mastered advanced skills.</p>
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
-            <div class="projects">
-                <a href="https://event-booking-app-ies5.onrender.com" target="_blank" class="project-card">
-                    <img src="Event_booking.png" alt="Project">
-                    <div class="content">
-                        <h3>Event-Booking</h3>
-                        <p>Full-stack app with Node.js and MongoDB.</p>
-                    </div>
-                </a>
+            <a href="https://event-booking-demo.com" target="_blank" class="project-card">
+                <img src="Event_booking.png" alt="Project">
+                <div class="content">
+                    <h3>Event-Booking</h3>
+                    <p>Full-stack app with Node.js and MongoDB.</p>
+                </div>
+            </a>
 
-                <a href="https://portfolio-two-chi-3lgyk6xurs.vercel.app/" target="_blank" class="project-card">
-                    <img src="Portfolio.png" alt="Project">
-                    <div class="content">
-                        <h3>Portfolio</h3>
-                        <p>Responsive web application using HTML, CSS, JS.</p>
-                    </div>
-                </a>
+            <a href="https://portfolio-demo.com" target="_blank" class="project-card">
+                <img src="Portfolio.png" alt="Project">
+                <div class="content">
+                    <h3>Portfolio</h3>
+                    <p>Responsive web application using HTML, CSS, JS.</p>
+                </div>
+            </a>
 
-                <a href="https://url-s-tawny.vercel.app/" target="_blank" class="project-card">
-                    <img src="URL-s.png" alt="Project">
-                    <div class="content">
-                        <h3>URL-s</h3>
-                        <p>Responsive PWA using HTML, CSS, JS.</p>
-                    </div>
-                </a>
-            </div>
-
+            <a href="https://url-s-demo.com" target="_blank" class="project-card">
+                <img src="URL-s.png" alt="Project">
+                <div class="content">
+                    <h3>URL-s</h3>
+                    <p>Responsive PWA using HTML, CSS, JS.</p>
+                </div>
+            </a>
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills -->
     <section id="skills">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Skills</h2>
         <div class="icon-train">
@@ -91,7 +88,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Contact Me</h2>
         <div class="contact">
@@ -118,7 +115,7 @@
         <div class="popup-content">
             <span id="closePopup" class="close">&times;</span>
             <div class="success-icon">✔</div>
-            <p id="popupMessage">Your message has been sent successfully!</p>
+            <p id="popupMessage"></p>
         </div>
     </div>
 
@@ -126,19 +123,20 @@
     <script>
         const FORM_API_KEY = "ebdc3890-a3a4-4c65-a288-ea7d7caf4eec";
 
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navLinks = document.querySelector("nav ul");
-        menuToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
-
         const popup = document.getElementById('popup');
         const popupMessage = document.getElementById('popupMessage');
-        document.getElementById('closePopup').addEventListener('click', () => popup.style.display = 'none');
 
-        function showPopup(message) {
-            popupMessage.innerText = message;
-            popup.style.display = 'flex';
-            setTimeout(() => { popup.style.display = 'none'; }, 4000);
+        function closePopup() {
+            popup.style.display = 'none';
         }
+
+        document.getElementById('closePopup').addEventListener('click', closePopup);
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector("nav ul");
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
 
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -164,11 +162,14 @@
                 });
 
                 const data = await res.json();
-                showPopup(data.message || "Message sent successfully!");
+
+                popupMessage.innerText = data.message || "Message sent successfully!";
+                popup.style.display = 'flex';
                 document.getElementById('contactForm').reset();
             } catch (err) {
                 console.error("Form submission error:", err);
-                showPopup("😔 Oops, something went wrong. Try again later.");
+                popupMessage.innerText = "😔 Oops, something went wrong. Try again later.";
+                popup.style.display = 'flex';
             }
         });
     </script>
@@ -177,6 +178,6 @@
     <footer>
         &copy; 2025 Ayush Lokare. All Rights Reserved.
     </footer>
-</body>
 
+</body>
 </html>
