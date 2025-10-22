@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link href="public/styles.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -23,8 +23,7 @@
         </ul>
     </nav>
 
-
-
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <h1>Hello, I'm Ayush Lokare</h1>
         <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
@@ -33,14 +32,14 @@
 
     <!-- About -->
     <section class="about" id="about">
-        <img src="public/profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
+        <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
         <div class="about-text">
             <h2>About Me</h2>
             <h3>Technically speaking</h3>
             <p>I am a passionate developer with experience in building web applications, competitive programming, and
                 problem-solving. I love creating beautiful and functional user interfaces.</p>
             <h3>Physically speaking</h3>
-            <p>I am Calisthenics athlete with mastered advanced skills. </p>
+            <p>I am a Calisthenics athlete with mastered advanced skills.</p>
         </div>
     </section>
 
@@ -49,14 +48,14 @@
         <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
         <div class="projects">
             <div class="project-card">
-                <img src="public/Event_booking.png" alt="Project">
+                <img src="Event_booking.png" alt="Event Booking Project">
                 <div class="content">
                     <h3>Event-Booking</h3>
                     <p>Full-stack app with Node.js and MongoDB.</p>
                 </div>
             </div>
             <div class="project-card">
-                <img src="public/Portfolio.png" alt="Project">
+                <img src="Portfolio.png" alt="Portfolio Project">
                 <div class="content">
                     <h3>Portfolio</h3>
                     <p>Responsive web application using HTML, CSS, JS.</p>
@@ -92,13 +91,13 @@
             </form>
         </div>
         <div class="socials">
-            <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/ayuuu__23__/" aria-label="Instagram" target="_blank" rel="noopener">
+            <a href="https://www.instagram.com/ayuuu__23__/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener">
+            <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                 <i class="fa-brands fa-github"></i></a>
-            <a href="tel:+91 8793787431" aria-label="Call us"><i class="fas fa-phone"></i></a>
+            <a href="tel:+918793787431" aria-label="Call us"><i class="fas fa-phone"></i></a>
         </div>
     </section>
 
@@ -111,57 +110,58 @@
         </div>
     </div>
 
-
-    <!-- Backscr -->
+    <!-- Scripts -->
     <script>
-    function closePopup() {
-        document.getElementById('popup').style.display = 'none';
-    }
+        const API_BASE = "https://backend-p-ucjs.onrender.com"; 
 
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector("nav ul");
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-    });
-
-    document.getElementById('contactForm').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
-
-        if (!name || !email || !message) {
-            alert('Please fill all fields.');
-            return;
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
         }
 
-        try {
-            const res = await fetch('/contact', {  
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, message })
-            });
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navLinks = document.querySelector("nav ul");
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("show");
+        });
 
-            let data = {};
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill all fields.');
+                return;
+            }
+
             try {
-                data = await res.json();
-            } catch {
-                data = { message: "Unknown server response" };
-            }
+                const res = await fetch(`${API_BASE}/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
 
-            if (res.ok) {
-                document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
-                document.getElementById('popup').style.display = 'block';
-                document.getElementById('contactForm').reset();
-            } else {
-                alert(data.message || "Failed to send message.");
+                let data = {};
+                try {
+                    data = await res.json();
+                } catch {
+                    data = { message: "Unknown server response" };
+                }
+
+                if (res.ok) {
+                    document.getElementById('popupMessage').innerText = data.message || "Message sent successfully!";
+                    document.getElementById('popup').style.display = 'block';
+                    document.getElementById('contactForm').reset();
+                } else {
+                    alert(data.message || "Failed to send message.");
+                }
+            } catch (err) {
+                alert('😔 Oops, something went wrong. Try again later.');
+                console.error(err);
             }
-        } catch (err) {
-            alert('😔 Oops, something went wrong. Try again later.');
-            console.error(err);
-        }
-    });
-</script>
+        });
+    </script>
 
     <!-- Footer -->
     <footer>
@@ -169,5 +169,4 @@
     </footer>
 
 </body>
-
 </html>
