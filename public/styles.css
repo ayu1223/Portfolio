@@ -169,6 +169,7 @@ section {
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    cursor: pointer;
 }
 
 .project-card:hover {
@@ -225,7 +226,7 @@ section {
 .icon-train i:nth-child(8) { color: #4db33d; }
 
 /* Contact */
-#contact{
+#contact {
     padding: 0;
 }
 
@@ -280,9 +281,9 @@ section {
 .socials a[aria-label="Instagram"]:hover { color: #e1306c; }
 .socials a[aria-label="GitHub"]:hover { color: #000; }
 
-/* Popup */
+/* Popup - hidden by default */
 .popup {
-    display: none;
+    display: none; /* hidden initially */
     position: fixed;
     top: 0;
     left: 0;
@@ -291,7 +292,6 @@ section {
     background: rgba(0,0,0,0.2);
     backdrop-filter: blur(6px);
     z-index: 1000;
-    display: flex;
     justify-content: center;
     align-items: center;
 }

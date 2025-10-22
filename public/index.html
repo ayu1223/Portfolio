@@ -160,14 +160,16 @@
 
                 const data = await res.json();
                 popupMessage.innerText = data.message || "Message sent successfully!";
-                popup.style.display = 'flex';
+                popup.style.display = 'flex'; 
                 document.getElementById('contactForm').reset();
             } catch (err) {
                 console.error("Form submission error:", err);
                 popupMessage.innerText = "😔 Oops, something went wrong. Try again later.";
-                popup.style.display = 'flex';
+                popup.style.display = 'flex'; 
             }
         });
+
+
     </script>
 
     <!-- Footer -->
@@ -176,4 +178,5 @@
     </footer>
 
 </body>
+
 </html>
