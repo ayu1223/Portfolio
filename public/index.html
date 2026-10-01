@@ -3,179 +3,1242 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link href="styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <meta name="description"
+        content="Ayush Lokare — Computer Science student, software developer, competitive programmer and AI enthusiast.">
+
+    <meta name="author" content="Ayush Lokare">
+
+    <meta name="keywords"
+        content="Ayush Lokare, developer, software engineer, AI, LangChain, Python, JavaScript, React, IIITDM Jabalpur">
+
+    <title>Ayush Lokare | Developer & AI Enthusiast</title>
+
+    <link rel="icon" href="assets/profile_photo1.jpg">
+
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Header -->
-    <nav>
-        <div class="logo">Ayush Lokare</div>
-        <div class="menu-toggle">&#9776;</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
 
-    <!-- Hero -->
-    <section class="hero" id="home">
-        <h1>Hello, I'm Ayush Lokare</h1>
-        <p>Frontend Developer | Competitive Programmer | Tech Enthusiast</p>
-        <a href="#projects">See My Work</a>
-    </section>
+    <!-- Background -->
+    <div class="background-grid"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
 
-    <!-- About -->
-    <section class="about" id="about">
-        <img src="profile_photo1.jpg" alt="Profile Picture" class="profile_photo">
-        <div class="about-text">
-            <h2>About Me</h2>
-            <h3>Technically speaking</h3>
-            <p>I am a passionate developer with experience in building web applications, competitive programming,
-                and problem-solving. I love creating beautiful and functional user interfaces.</p>
-            <h3>Physically speaking</h3>
-            <p>I am a Calisthenics athlete with mastered advanced skills.</p>
-        </div>
-    </section>
+    <!-- ================= NAVBAR ================= -->
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Projects</h2>
-        <div class="projects">
-            <a href="https://event-booking-app-ies5.onrender.com" target="_blank" class="project-card">
-                <img src="Event_booking.png" alt="Event-Booking Project">
-                <div class="content">
-                    <h3>Event-Booking</h3>
-                    <p>Full-stack app with Node.js and MongoDB.</p>
-                </div>
+    <header class="navbar">
+        <nav class="nav-container">
+
+            <a href="#home" class="logo">
+                <span class="logo-bracket">&lt;</span>
+                Ayush
+                <span class="logo-bracket">/&gt;</span>
             </a>
-            <a href="https://portfolio-two-chi-3lgyk6xurs.vercel.app/" target="_blank" class="project-card">
-                <img src="Portfolio.png" alt="Portfolio Project">
-                <div class="content">
-                    <h3>Portfolio</h3>
-                    <p>Responsive web application using HTML, CSS, JS.</p>
-                </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+
+                <li>
+                    <a href="#projects" class="nav-link">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#skills" class="nav-link">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+
+            <a href="#contact" class="nav-contact">
+                Let's Talk
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
-            <a href="https://url-s-tawny.vercel.app/" target="_blank" class="project-card">
-                <img src="URL-s.png" alt="URL-s Project">
-                <div class="content">
-                    <h3>URL-s</h3>
-                    <p>Progressive Web App using HTML, CSS, JS.</p>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero section" id="home">
+
+            <div class="hero-content reveal">
+
+                <div class="availability">
+                    <span class="status-dot"></span>
+                    Open to opportunities
                 </div>
-            </a>
-        </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Skills</h2>
-        <div class="icon-train">
-            <i class="fa-brands fa-html5"></i>
-            <i class="fa-brands fa-css3-alt"></i>
-            <i class="fa-brands fa-js"></i>
-            <i class="fa-brands fa-react"></i>
-            <i class="fa-brands fa-node-js"></i>
-            <i class="fa-brands fa-python"></i>
-            <i class="fa-brands fa-java"></i>
-            <i class="fa-solid fa-database"></i>
-        </div>
-    </section>
+                <p class="hero-eyebrow">
+                    COMPUTER SCIENCE STUDENT · DEVELOPER · AI ENTHUSIAST
+                </p>
 
-    <!-- Contact -->
-    <section id="contact">
-        <h2 style="text-align:center; margin-bottom:2rem; color:#007bff;">Contact Me</h2>
-        <div class="contact">
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-        <div class="socials">
-            <a href="https://www.linkedin.com/in/ayush-lokare/" aria-label="LinkedIn" target="_blank" rel="noopener">
-                <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/ayu_csw/" aria-label="Instagram" target="_blank" rel="noopener">
-                <i class="fa-brands fa-instagram"></i></a>
-            <a href="https://github.com/ayu1223" aria-label="GitHub" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i></a>
-            <a href="tel:+91 8793787431" aria-label="Call us"><i class="fas fa-phone"></i></a>
-        </div>
-    </section>
+                <h1>
+                    Building ideas into
+                    <span class="gradient-text">real software.</span>
+                </h1>
 
-    <!-- Popup -->
+                <p class="hero-description">
+                    Hi, I'm <strong>Ayush Lokare</strong> — a Computer Science
+                    student at IIITDM Jabalpur who enjoys building software,
+                    exploring AI systems, and solving challenging problems.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#projects" class="btn btn-primary">
+                        View My Work
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </a>
+
+                    <a href="https://github.com/ayu1223"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-secondary">
+
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+
+                </div>
+
+                <div class="hero-socials">
+
+                    <a
+                        href="https://www.linkedin.com/in/ayush-lokare/"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="LinkedIn"
+                    >
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <a
+                        href="https://github.com/ayu1223"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="GitHub"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a
+                        href="tel:+919975686760"
+                        aria-label="Phone"
+                    >
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual reveal">
+
+                <div class="code-window">
+
+                    <div class="window-header">
+
+                        <div class="window-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span class="window-title">
+                            ayush.js
+                        </span>
+
+                    </div>
+
+                    <div class="code-content">
+
+                        <div>
+                            <span class="code-purple">const</span>
+                            <span class="code-blue">developer</span>
+                            <span class="code-white">=</span>
+                            <span class="code-orange">{</span>
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-blue">name:</span>
+                            <span class="code-green">"Ayush Lokare"</span>,
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-blue">role:</span>
+                            <span class="code-green">"Software Developer"</span>,
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-blue">focus:</span>
+                            <span class="code-green">"AI + Systems"</span>,
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-blue">education:</span>
+                            <span class="code-green">"IIITDM Jabalpur"</span>,
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-blue">languages:</span>
+                            <span class="code-orange">[</span>
+                        </div>
+
+                        <div class="indent double">
+                            <span class="code-green">"C++"</span>,
+                            <span class="code-green">"Python"</span>,
+                            <span class="code-green">"JavaScript"</span>
+                        </div>
+
+                        <div class="indent">
+                            <span class="code-orange">]</span>
+                        </div>
+
+                        <div>
+                            <span class="code-orange">}</span>;
+                        </div>
+
+                        <div class="cursor-line">
+                            <span class="terminal-cursor"></span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="floating-card card-one">
+                    <i class="fa-solid fa-code"></i>
+                    <div>
+                        <strong>400+</strong>
+                        <span>Problems Solved</span>
+                    </div>
+                </div>
+
+                <div class="floating-card card-two">
+                    <i class="fa-solid fa-brain"></i>
+                    <div>
+                        <strong>AI</strong>
+                        <span>Building & Exploring</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats-section">
+
+            <div class="stats-container reveal">
+
+                <div class="stat">
+                    <strong>400+</strong>
+                    <span>DSA Problems</span>
+                </div>
+
+                <div class="stat">
+                    <strong>4+</strong>
+                    <span>Projects Built</span>
+                </div>
+
+                <div class="stat">
+                    <strong>3+</strong>
+                    <span>Years Learning</span>
+                </div>
+
+                <div class="stat">
+                    <strong>∞</strong>
+                    <span>Things to Build</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="section about-section" id="about">
+
+            <div class="section-heading reveal">
+
+                <span class="section-number">01</span>
+
+                <div>
+                    <p class="section-label">GET TO KNOW ME</p>
+                    <h2>About Me</h2>
+                </div>
+
+            </div>
+
+
+            <div class="about-grid">
+
+                <div class="about-image reveal">
+
+                    <div class="image-frame">
+
+                        <img
+                            src="profile_photo1.jpg"
+                            alt="Ayush Lokare"
+                        >
+
+                        <div class="image-overlay"></div>
+
+                    </div>
+
+                    <div class="image-decoration"></div>
+
+                </div>
+
+
+                <div class="about-content reveal">
+
+                    <h3>
+                        I like turning
+                        <span class="gradient-text">ideas into systems.</span>
+                    </h3>
+
+                    <p>
+                        I'm a Computer Science student at
+                        <strong>IIITDM Jabalpur</strong> who enjoys building
+                        things and solving problems.
+                    </p>
+
+                    <p>
+                        I'm particularly interested in
+                        <strong>software development, artificial intelligence,
+                        and agentic systems.</strong>
+                        Most of what I learn comes from building projects,
+                        experimenting with new technologies, and participating
+                        in competitive programming.
+                    </p>
+
+                    <p>
+                        Outside the screen, I'm also into
+                        <strong>calisthenics.</strong>
+                        I train regularly and work towards mastering advanced
+                        skills. For me, coding and training come down to the
+                        same thing — consistency and getting a little better
+                        every day.
+                    </p>
+
+                    <div class="about-highlights">
+
+                        <div>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>IIITDM Jabalpur</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>Computer Science</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-code"></i>
+                            <span>Software Development</span>
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-robot"></i>
+                            <span>AI & Agentic Systems</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EDUCATION ================= -->
+
+        <section class="section education-section">
+
+            <div class="section-heading reveal">
+
+                <span class="section-number">02</span>
+
+                <div>
+                    <p class="section-label">MY JOURNEY</p>
+                    <h2>Education</h2>
+                </div>
+
+            </div>
+
+
+            <div class="timeline reveal">
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-card">
+
+                        <span class="timeline-date">
+                            2024 — 2028
+                        </span>
+
+                        <h3>
+                            B.Tech in Computer Science & Engineering
+                        </h3>
+
+                        <p class="timeline-place">
+                            PDPM IIITDM Jabalpur
+                        </p>
+
+                        <p>
+                            Exploring computer science through software
+                            development, algorithms, artificial intelligence,
+                            systems, and hands-on projects.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section class="section projects-section" id="projects">
+
+            <div class="section-heading reveal">
+
+                <span class="section-number">03</span>
+
+                <div>
+                    <p class="section-label">THINGS I'VE BUILT</p>
+                    <h2>Projects</h2>
+                </div>
+
+            </div>
+
+
+            <div class="projects-grid">
+
+
+                <!-- Project 1 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+
+                        <img
+                            src="assets/Event_booking.png"
+                            alt="Event Booking project"
+                        >
+
+                        <div class="project-overlay">
+
+                            <a
+                                href="https://event-booking-app-ies5.onrender.com"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Open Event Booking"
+                            >
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-number">01</div>
+
+                        <h3>Event-Booking</h3>
+
+                        <p>
+                            A full-stack application for hosting and booking
+                            events, built with a Node.js backend and MongoDB.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a
+                                href="https://event-booking-app-ies5.onrender.com"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Live Demo
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Project 2 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+
+                        <img
+                            src="assets/Portfolio.png"
+                            alt="Portfolio project"
+                        >
+
+                        <div class="project-overlay">
+
+                            <a
+                                href="https://portfolio-two-chi-3lgyk6xurs.vercel.app/"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Open Portfolio project"
+                            >
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-number">02</div>
+
+                        <h3>Portfolio</h3>
+
+                        <p>
+                            A personal portfolio experiment built using
+                            HTML, CSS and JavaScript.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a
+                                href="https://portfolio-two-chi-3lgyk6xurs.vercel.app/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Live Demo
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Project 3 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+
+                        <img
+                            src="assets/URL-s.png"
+                            alt="URL shortening project"
+                        >
+
+                        <div class="project-overlay">
+
+                            <a
+                                href="https://url-s-tawny.vercel.app/"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Open URL-s"
+                            >
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-number">03</div>
+
+                        <h3>URL-s</h3>
+
+                        <p>
+                            A URL shortening application that also lets users
+                            create custom short names for their links.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a
+                                href="https://url-s-tawny.vercel.app/"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                Live Demo
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Project 4 -->
+
+                <article class="project-card reveal">
+
+                    <div class="project-image">
+
+                        <img
+                            src="agent.png"
+                            alt="AgentX project"
+                        >
+
+                        <div class="project-overlay">
+
+                            <a
+                                href="https://github.com/ayu1223/AskWhat"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Open AgentX GitHub"
+                            >
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="project-content">
+
+                        <div class="project-number">04</div>
+
+                        <h3>AgentX</h3>
+
+                        <p>
+                            A multi-agent web application designed to give
+                            students an AI-powered learning assistant.
+                        </p>
+
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>LangChain</span>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="project-links">
+
+                            <a
+                                href="https://github.com/ayu1223/AskWhat"
+                                target="_blank"
+                                rel="noopener"
+                            >
+                                GitHub
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="section skills-section" id="skills">
+
+            <div class="section-heading reveal">
+
+                <span class="section-number">04</span>
+
+                <div>
+                    <p class="section-label">WHAT I WORK WITH</p>
+                    <h2>Skills</h2>
+                </div>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-category reveal">
+
+                    <div class="skill-category-header">
+                        <i class="fa-solid fa-code"></i>
+                        <h3>Languages</h3>
+                    </div>
+
+                    <div class="skill-list">
+
+                        <span>
+                            <i class="fa-brands fa-cuttlefish"></i>
+                            C / C++
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-python"></i>
+                            Python
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-java"></i>
+                            Java
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-js"></i>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-database"></i>
+                            SQL
+                        </span>
+                        <span>
+                            <i class="fab fa-php"></i>
+                            PHP
+                        </span>
+
+                        <span>
+                            <i class="fas fa-eye"></i>
+                            Computer Vision
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category reveal">
+
+                    <div class="skill-category-header">
+                        <i class="fa-solid fa-globe"></i>
+                        <h3>Web Development</h3>
+                    </div>
+
+                    <div class="skill-list">
+
+                        <span>
+                            <i class="fa-brands fa-html5"></i>
+                            HTML
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-css3-alt"></i>
+                            CSS
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-js"></i>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-react"></i>
+                            React
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-node-js"></i>
+                            Node.js
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category reveal">
+
+                    <div class="skill-category-header">
+                        <i class="fa-solid fa-brain"></i>
+                        <h3>AI & Tools</h3>
+                    </div>
+
+                    <div class="skill-list">
+
+                        <span>
+                            <i class="fa-solid fa-link"></i>
+                            LangChain
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-robot"></i>
+                            AI Agents
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-git-alt"></i>
+                            Git
+                        </span>
+
+                        <span>
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-database"></i>
+                            MongoDB
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="skill-category reveal">
+
+                    <div class="skill-category-header">
+                        <i class="fa-solid fa-terminal"></i>
+                        <h3>Core Concepts</h3>
+                    </div>
+
+                    <div class="skill-list">
+
+                        <span>
+                            <i class="fa-solid fa-diagram-project"></i>
+                            Data Structures
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-chart-line"></i>
+                            Algorithms
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-server"></i>
+                            Backend Development
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-laptop-code"></i>
+                            Problem Solving
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CP ================= -->
+
+        <section class="section cp-section">
+
+            <div class="cp-card reveal">
+
+                <div class="cp-content">
+
+                    <span class="section-label">
+                        BEYOND PROJECTS
+                    </span>
+
+                    <h2>
+                        I enjoy solving
+                        <span class="gradient-text">problems.</span>
+                    </h2>
+
+                    <p>
+                        Competitive programming has been an important part of
+                        my journey. It has helped me develop stronger
+                        problem-solving skills and a deeper understanding of
+                        algorithms and data structures.
+                    </p>
+
+                    <div class="cp-stats">
+
+                        <div>
+                            <strong>500+</strong>
+                            <span>Problems Solved</span>
+                        </div>
+
+                        <div>
+                            <strong>971</strong>
+                            <span>Codeforces Max Rating</span>
+                        </div>
+
+                        <div>
+                            <strong>1398</strong>
+                            <span>CodeChef Max Rating</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cp-visual">
+
+                    <div class="bracket">
+                        <span>{</span>
+
+                        <div class="algorithm-lines">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+                        <span>}</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="section contact-section" id="contact">
+
+            <div class="section-heading reveal">
+
+                <span class="section-number">05</span>
+
+                <div>
+                    <p class="section-label">LET'S CONNECT</p>
+                    <h2>Get In Touch</h2>
+                </div>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+
+                <div class="contact-info reveal">
+
+                    <h3>
+                        Have an idea?
+                        <span class="gradient-text">Let's talk.</span>
+                    </h3>
+
+                    <p>
+                        Whether you want to discuss a project, an opportunity,
+                        technology, or just say hello — feel free to reach out.
+                    </p>
+
+                    <div class="contact-links">
+
+                        <a
+                            href="https://www.linkedin.com/in/ayush-lokare/"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <span class="contact-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </span>
+
+                            <span>
+                                <small>CONNECT</small>
+                                LinkedIn
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+
+                        <a
+                            href="https://github.com/ayu1223"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <span class="contact-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </span>
+
+                            <span>
+                                <small>FOLLOW</small>
+                                GitHub
+                            </span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+
+                        <a href="tel:+919975686760">
+
+                            <span class="contact-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+
+                            <span>
+                                <small>CALL</small>
+                                +91 99756 86760
+                            </span>
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-form-wrapper reveal">
+
+                    <form id="contactForm">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Tell me about your idea..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary submit-btn"
+                        >
+
+                            Send Message
+
+                            <i class="fa-solid fa-paper-plane"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <a href="#home" class="logo">
+                    <span class="logo-bracket">&lt;</span>
+                    Ayush
+                    <span class="logo-bracket">/&gt;</span>
+                </a>
+
+                <p>
+                    Building, learning, and improving — one project at a time.
+                </p>
+
+            </div>
+
+
+            <div class="footer-socials">
+
+                <a
+                    href="https://github.com/ayu1223"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/ayush-lokare/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="LinkedIn"
+                >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Ayush Lokare
+            </span>
+
+            <span>
+                Designed & built with code.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= SUCCESS POPUP ================= -->
+
     <div id="popup" class="popup">
+
         <div class="popup-content">
-            <span id="closePopup" class="close">&times;</span>
-            <div class="success-icon">✔</div>
-            <p id="popupMessage">Your message has been sent successfully!</p>
+
+            <button
+                id="closePopup"
+                class="close-popup"
+                aria-label="Close"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="success-icon">
+                <i class="fa-solid fa-check"></i>
+            </div>
+
+            <h3 id="popupTitle">
+                Message Sent!
+            </h3>
+
+            <p id="popupMessage">
+                Thanks for reaching out. I'll get back to you soon.
+            </p>
+
+            <button
+                id="popupOkay"
+                class="btn btn-primary"
+            >
+                Done
+            </button>
+
         </div>
+
     </div>
 
-    <!-- Scripts -->
-    <script>
-        const FORM_API_KEY = "ebdc3890-a3a4-4c65-a288-ea7d7caf4eec";
 
-        const menuToggle = document.querySelector(".menu-toggle");
-        const navLinks = document.querySelector("nav ul");
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("show");
-        });
+    <!-- Back to top -->
 
-        const popup = document.getElementById('popup');
-        const popupMessage = document.getElementById('popupMessage');
-        const closePopupBtn = document.getElementById('closePopup');
-
-        closePopupBtn.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
-
-        document.getElementById('contactForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !message) {
-                alert('Please fill all fields.');
-                return;
-            }
-
-            try {
-                const res = await fetch("https://api.web3forms.com/submit", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        access_key: FORM_API_KEY,
-                        name,
-                        email,
-                        message
-                    })
-                });
-
-                const data = await res.json();
-                popupMessage.innerText = data.message || "Message sent successfully!";
-                popup.style.display = 'flex'; 
-                document.getElementById('contactForm').reset();
-            } catch (err) {
-                console.error("Form submission error:", err);
-                popupMessage.innerText = "😔 Oops, something went wrong. Try again later.";
-                popup.style.display = 'flex'; 
-            }
-        });
+    <button
+        id="backToTop"
+        class="back-to-top"
+        aria-label="Back to top"
+    >
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
 
 
-    </script>
-
-    <!-- Footer -->
-    <footer>
-        &copy; 2025 Ayush Lokare. All Rights Reserved.
-    </footer>
+    <script src="script.js"></script>
 
 </body>
 
